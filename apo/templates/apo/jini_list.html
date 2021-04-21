@@ -1,0 +1,37 @@
+{% extends 'apo/base.html' %}
+{% block content %}
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">ジニー情報</span>
+  </div>
+</nav>
+<table class="table table-success table-striped">
+  <thead>
+  <tr>
+    <th>MSN</th>
+    <th>機種</th>
+    <th>小計</th>
+    <th>通話</th>
+    <th>ネット</th>
+    <th>半サポ</th>
+    <th>その他</th>
+  </tr>
+  </thead>
+  <tbody>
+    {% for jini in jini %}
+    <tr>
+      <td>{{jini.MSN}}</td>
+      <td>{{jini.model}}</td>
+      <td>{{jini.subtotal}}</td>
+      <td>{{jini.call}}</td>
+      <td>{{jini.GB}}</td>
+      <td>{{jini.hs}}</td>
+      <td>{{jini.suport}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td> <a href="{% url 'jinicreate' %}"><input type="submit" value="追加"></a></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

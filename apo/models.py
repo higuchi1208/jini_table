@@ -10,3 +10,10 @@ class Jini(models.Model):
     suport = models.CharField(verbose_name="割引", max_length=500)
 
 
+class Company(models.Model):
+    company = models.CharField(verbose_name="会社名", max_length=50)
+
+    def __str__(self):
+        return self.company
+
+

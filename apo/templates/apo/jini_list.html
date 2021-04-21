@@ -5,6 +5,8 @@
     <span class="navbar-brand mb-0 h1">ジニー情報</span>
   </div>
 </nav>
+{% for company in company %}
+<th>会社名:{{company.company}}</th>
 <table class="table table-success table-striped">
   <thead>
   <tr>
@@ -27,11 +29,14 @@
       <td>{{jini.GB}}</td>
       <td>{{jini.hs}}</td>
       <td>{{jini.suport}}</td>
+      <td><a href="{% url 'jinidelete' jini.pk %}"><button>削除</button></a></td>
     </tr>
     {% endfor %}
     <tr>
-      <td> <a href="{% url 'jinicreate' %}"><input type="submit" value="追加"></a></td>
+      <td> <a href="{% url 'jinicreate' %}"><input type="submit" value="追加"></a>&nbsp;<a href="{% url 'companydelete' company.pk %}"><button>表を削除</button></a></td>
     </tr>
   </tbody>
 </table>
+{% endfor %}
+<a href="{% url 'companycreate' %}"><button>表を追加</button></a>
 {% endblock %}
